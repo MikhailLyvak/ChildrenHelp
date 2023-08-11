@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Profile</title>
-</head>
-<body>
-    <h2>Welcome to your profile</h2>
-    <p>This is your protected profile page.</p>
-    <p>{{ date }}</p>
-</body>
-</html>
+{% extends 'index.html' %}
+    
+
+{% block content %}
+<p>{{ username }}</p>
+<p>{{ phone }}</p>
+{% endblock content %}
+    

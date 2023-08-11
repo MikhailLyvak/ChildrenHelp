@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% block content %}
+    {% csrf_token %}
+        <a href="{% url 'charity:help_list' %}" type="button" class="btn btn-info">Go to list</a> 
+    {% if is_owner %}
+        <p>ID: {{ req.id }}</p>
+        <p>TITLE: {{ req.title }}</p>
+        <p>DESCRIPTION: {{ req.description }}</p>
+        <p>LOCATION: {{ req.location }}</p>
+        <p>DATE: {{ req.date }}</p>
+        <p>OWNER: {{ req.owner }}</p>
+        <p>HELPERS: 
+        {% if req.helpers.all %}
+            {% for helper in req.helpers.all %}
+                {{ helper }}
+                {{ helper.phone }}
+            {% endfor %}
+        {% else %}
+            No helpers yet
+        {% endif %}
+            </p>
+        <p>IS_DONE: {{ req.is_done }}</p>
+        <p>
+        {% if req.is_done is False  %}
+            <a href="{% url 'charity:mark-ass-done' pk=req.id %}" type="button" class="btn btn-primary">Mark as done</a> 
+        {% endif %}
+    {% else %}
+        <p>ID: {{ req.id }}</p>
+        <p>TITLE: {{ req.title }}</p>
+        <p>DESCRIPTION: {{ req.description }}</p>
+        <p>LOCATION: {{ req.location }}</p>
+        <p>DATE: {{ req.date }}</p>
+        <p>OWNER: {{ req.owner }}</p>
+        <p>HELPERS: 
+        {% if req.helpers.all %}
+            {% for helper in req.helpers.all %}
+                {{ helper }}
+            {% endfor %}
+        {% else %}
+            No helpers yet
+        {% endif %}
+            </p>
+        {% if req_user in req.helpers.all %}
+            <a href="{% url 'charity:remove-add-me-to-help' pk=req.id %}" type="button" class="btn btn-danger">Delete from helpers</a>
+        {% else %}
+            <a href="{% url 'charity:remove-add-me-to-help' pk=req.id %}" type="button" class="btn btn-primary">Assign to helpers list</a> 
+        {% endif %}
+    {% endif %}
+        
+    
+{% endblock %}

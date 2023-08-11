@@ -1,0 +1,46 @@
+/* .vul_title {
+    background-color: rgba(222, 212, 223, 0.25);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    padding-top: 10px;
+} */
+
+/* .table-container {
+    display: flex;
+    align-items: stretch;
+  }
+  
+  .vertical-table {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .vertical-table th,
+  .vertical-table td {
+    text-align: left;
+  }
+
+  .data-fields {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 25px;
+}
+
+.table-bg {
+    background-color: rgba(101, 83, 102, 0.25);
+    border-radius: 12px;
+    padding: 15px 15px 0px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment_data {
+    margin-top: 10px;
+    min-height: 150px;
+    flex-grow: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+} */

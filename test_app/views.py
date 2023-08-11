@@ -24,7 +24,7 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('test_app:profile_view')
+                    return redirect('charity:home')
                 else:
                     return HttpResponse('Disabled account')
             else:
@@ -37,5 +37,11 @@ def login_view(request):
 
 @login_required
 def profile_view(request):
-    date = request.user.username
-    return render(request, 'registration/profile.html', {'date': date})
+    username = request.user.username
+    phone = request.user.phone
+    
+    context = {
+        "username": username,
+        "phone": phone,
+    }
+    return render(request, 'registration/profile.html', context=context)
